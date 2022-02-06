@@ -54,4 +54,11 @@ export class EmployeeDashboardComponent implements OnInit {
       this.employeeData = res
     })
   }
+
+  deleteEmployee(row: any) {
+    this.api.deleteEmployee(row.id).subscribe((res) => {
+      alert('Employee Deleted Successfully')
+      this.getAllEmployee()
+    })
+  }
 }
