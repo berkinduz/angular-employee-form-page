@@ -12,6 +12,7 @@ export class EmployeeDashboardComponent implements OnInit {
   formValue!: FormGroup
   employeeModelObj: EmployeeModel = new EmployeeModel()
   employeeData!: any
+  isEdit: boolean = false
 
   constructor(private formBuilder: FormBuilder, private api: ApiService) {}
 
@@ -36,7 +37,6 @@ export class EmployeeDashboardComponent implements OnInit {
 
     this.api.postEmployee(this.employeeModelObj).subscribe(
       (res) => {
-        console.log(res)
         alert('Employee Added Successfully')
         let ref = document.getElementById('cancel') // Close button id="cancel"
         ref?.click() // click event for close button
@@ -49,6 +49,9 @@ export class EmployeeDashboardComponent implements OnInit {
     )
   }
 
+  resetForm() {
+    this.formValue.reset()
+  }
   getAllEmployee() {
     this.api.getEmployee().subscribe((res) => {
       this.employeeData = res
@@ -60,5 +63,33 @@ export class EmployeeDashboardComponent implements OnInit {
       alert('Employee Deleted Successfully')
       this.getAllEmployee()
     })
+  }
+
+  onEdit(row: any) {
+    this.employeeModelObj.id = row.id
+    this.formValue.controls['firstName'].setValue(row.firstName)
+    this.formValue.controls['lastName'].setValue(row.lastName)
+    this.formValue.controls['email'].setValue(row.email)
+    this.formValue.controls['mobile'].setValue(row.mobile)
+    this.formValue.controls['salary'].setValue(row.salary)
+    this.isEdit = true
+  }
+
+  updateEmployeeDetails() {
+    this.employeeModelObj.firstName = this.formValue.value.firstName
+    this.employeeModelObj.lastName = this.formValue.value.lastName
+    this.employeeModelObj.email = this.formValue.value.email
+    this.employeeModelObj.mobile = this.formValue.value.mobile
+    this.employeeModelObj.salary = this.formValue.value.salary
+
+    this.api
+      .updateEmployee(this.employeeModelObj, this.employeeModelObj.id)
+      .subscribe((res) => {
+        alert('Employee Updated Successfully')
+        let ref = document.getElementById('cancel') // Close button id="cancel"
+        ref?.click() // click event for close button
+        this.formValue.reset() // this method clear form values
+        this.getAllEmployee()
+      })
   }
 }

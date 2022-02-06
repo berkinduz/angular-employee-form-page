@@ -1,18 +1,39 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 3,
+      "firstName": "Ali",
+      "lastName": "Avcı",
+      "email": "ali@mail.com",
+      "mobile": "123123",
+      "salary": "123123"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 4,
+      "firstName": "Berkin",
+      "lastName": "Düz",
+      "email": "berkin@mail.com",
+      "mobile": "123",
+      "salary": "123"
+    },
+    {
+      "id": 5,
+      "firstName": "At",
+      "lastName": "Kafası",
+      "email": "at@mail.com",
+      "mobile": "123123",
+      "salary": "123123"
+    },
+    {
+      "id": 6,
+      "firstName": "Berkay",
+      "lastName": "Düz",
+      "email": "berkay@mail.com",
+      "mobile": "123123",
+      "salary": "123123"
     }
   ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }
