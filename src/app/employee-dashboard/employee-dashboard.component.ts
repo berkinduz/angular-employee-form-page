@@ -11,6 +11,7 @@ import { EmployeeModel } from './employee-dashboard.model'
 export class EmployeeDashboardComponent implements OnInit {
   formValue!: FormGroup
   employeeModelObj: EmployeeModel = new EmployeeModel()
+  employeeData!: any
 
   constructor(private formBuilder: FormBuilder, private api: ApiService) {}
 
@@ -22,6 +23,8 @@ export class EmployeeDashboardComponent implements OnInit {
       mobile: [''],
       salary: [''],
     })
+
+    this.getAllEmployee()
   }
 
   postEmployeeDetails() {
@@ -35,10 +38,20 @@ export class EmployeeDashboardComponent implements OnInit {
       (res) => {
         console.log(res)
         alert('Employee Added Successfully')
+        let ref = document.getElementById('cancel') // Close button id="cancel"
+        ref?.click() // click event for close button
+        this.formValue.reset() // this method clear form values
+        this.getAllEmployee()
       },
       (err) => {
         alert('Something went wrong')
       },
     )
+  }
+
+  getAllEmployee() {
+    this.api.getEmployee().subscribe((res) => {
+      this.employeeData = res
+    })
   }
 }
