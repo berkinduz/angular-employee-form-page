@@ -61,7 +61,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="formValue">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">
               First Name
@@ -71,6 +71,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              formControlName="firstName"
             />
           </div>
           <div class="mb-3">
@@ -81,6 +82,7 @@
               type="text"
               class="form-control"
               id="exampleInputPassword1"
+              formControlName="lastName"
             />
           </div>
           <div class="mb-3">
@@ -91,6 +93,7 @@
               type="email"
               class="form-control"
               id="exampleInputPassword1"
+              formControlName="email"
             />
           </div>
           <div class="mb-3">
@@ -101,6 +104,7 @@
               type="text"
               class="form-control"
               id="exampleInputPassword1"
+              formControlName="mobile"
             />
           </div>
           <div class="mb-3">
@@ -111,6 +115,7 @@
               type="text"
               class="form-control"
               id="exampleInputPassword1"
+              formControlName="salary"
             />
           </div>
         </form>
