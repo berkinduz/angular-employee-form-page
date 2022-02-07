@@ -33,7 +33,15 @@
       "salary": "123123"
     }
   ],
-  "comments": [],
+  "signupUsers": [
+    {
+      "fullname": "Berkin Düz",
+      "email": "berkin@mail.com",
+      "password": "berkin123",
+      "mobile": "+905424347384",
+      "id": 1
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
