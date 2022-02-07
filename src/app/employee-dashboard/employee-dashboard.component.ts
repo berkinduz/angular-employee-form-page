@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
+import { Router } from '@angular/router'
 import { ApiService } from '../shared/api.service'
 import { EmployeeModel } from './employee-dashboard.model'
 
@@ -13,8 +14,13 @@ export class EmployeeDashboardComponent implements OnInit {
   employeeModelObj: EmployeeModel = new EmployeeModel()
   employeeData!: any
   isEdit: boolean = false
+  isLogin: boolean = localStorage.getItem('user') ? true : false
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
@@ -47,6 +53,11 @@ export class EmployeeDashboardComponent implements OnInit {
         alert('Something went wrong')
       },
     )
+  }
+
+  logout() {
+    this.router.navigate(['/login'])
+    localStorage.clear()
   }
 
   resetForm() {
