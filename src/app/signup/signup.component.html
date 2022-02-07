@@ -1,1 +1,62 @@
-<p>signup works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h2>Sign Up</h2>
+        </div>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">
+              Full Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">
+              Mobile Number
+            </label>
+            <input
+              type="tel"
+              class="form-control"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              id="exampleInputPassword1"
+              autocorrect
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">
+              Email
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <button routerLink="/login" type="submit" class="btn btn-warning">
+              Have an account?
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
